@@ -1,0 +1,125 @@
+{{extend 'layout.html'}}
+<font color="blue">Results for ' {{=con}} ':</font> ({{=match}} matches found!)
+
+
+<li>
+{{days=[]
+for n in name:
+days.append(n['date'][0])}}
+
+<div id="page-wrapper">
+
+    <div class="container-fluid" id ="{{=n['date'][0]}}">
+
+        <!-- Page Heading -->
+        <div class="row" >
+            <div class="col-lg-12">
+                <h1 class="page-header">
+
+                    <b>{{=n['title'][0]}}</b><br>
+                    <small >{{=n['date'][0]}}</small>
+                </h1>
+                <ol class="breadcrumb">
+                    {{=n['desc'][0]}}
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+{{pass}}
+
+{{days.sort()}}
+
+
+{{from itertools import groupby
+freq = [len(list(group)) for key, group in groupby(days)]}}
+
+{{datas = [29.9, 71.5, 106.4, 129.2, 144.0]}}
+{{names = ['damla','onur']}}
+</li>
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highcharts Example</title>
+
+
+		<style type="text/css">
+
+${demo.css}
+		</style>
+
+	</head>
+	<body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<ul class="hidden">
+  {{for d in dates:}}
+    <li>{{=d}}</li>
+  {{pass}}
+</ul>
+{{if name:}}
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+{{pass}}
+<script>
+  $(document).ready(function(){
+    var chart = new Highcharts.Chart({
+      title: {
+          text: 'Number of news per day',
+          x: -20 //center
+      },
+      subtitle: {
+          text: 'Source: Radikal.com',
+          x: -20
+      },
+
+      chart: {
+          renderTo: 'container'
+      },
+
+      xAxis: {
+        categories: null,
+        labels:{
+          formatter:function(){
+            return "<a href='#"+this.value +"' >"+this.value+'</a>'
+          },useHTML:true
+        }
+      },
+      yAxis: {
+          title: {
+              text: 'Number of news'
+          },
+          plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+          }]
+      },
+      tooltip: {
+          valueSuffix: ' news released'
+      },
+
+      series: [{
+          name: '{{=con}}',
+          data: {{=freq}}
+      }]
+
+    });
+      $('.hidden').css('display','none')
+      console.log('test')
+      var datelist = []
+      $('ul.hidden li').each(function(){
+        datelist.push($(this).text())
+      })
+      console.log(datelist)
+
+      chart.xAxis[0].setCategories(datelist.sort());
+  });
+</script>
+	</body>
+</html>

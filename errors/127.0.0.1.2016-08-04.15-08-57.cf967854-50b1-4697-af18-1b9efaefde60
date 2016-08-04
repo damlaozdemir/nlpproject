@@ -1,0 +1,219 @@
+(dp1
+S'output'
+p2
+S'Unable to open included view file: /home/damla/web2py/applications/nlpproject2/views/default/layout.html'
+p3
+sS'layer'
+p4
+S'ParserContainer'
+p5
+sS'code'
+p6
+S'{{extend \'default/layout.html\'}}\r\n<font color="blue">Results for \' {{=con}} \':</font> ({{=match}} matches found!)\r\n\r\n\r\n<li>\r\n{{days=[]\r\nfor n in name:\r\ndays.append(n[\'date\'][0])}}\r\n\r\n<div id="page-wrapper">\r\n\r\n    <div class="container-fluid" id ="{{=n[\'date\'][0]}}">\r\n\r\n        <!-- Page Heading -->\r\n        <div class="row" >\r\n            <div class="col-lg-12">\r\n                <h1 class="page-header">\r\n\r\n                    <b>{{=n[\'title\'][0]}}</b><br>\r\n                    <small >{{=n[\'date\'][0]}}</small>\r\n                </h1>\r\n                <ol class="breadcrumb">\r\n                    {{=n[\'desc\'][0]}}\r\n                </ol>\r\n            </div>\r\n        </div>\r\n        <!-- /.row -->\r\n\r\n    </div>\r\n    <!-- /.container-fluid -->\r\n\r\n</div>\r\n{{pass}}\r\n\r\n{{days.sort()}}\r\n\r\n\r\n{{from itertools import groupby\r\nfreq = [len(list(group)) for key, group in groupby(days)]}}\r\n\r\n{{datas = [29.9, 71.5, 106.4, 129.2, 144.0]}}\r\n{{names = [\'damla\',\'onur\']}}\r\n</li>\r\n\r\n<!DOCTYPE HTML>\r\n<html>\r\n\t<head>\r\n\t\t<meta http-equiv="Content-Type" content="text/html; charset=utf-8">\r\n\t\t<title>Highcharts Example</title>\r\n\r\n\r\n\t\t<style type="text/css">\r\n\r\n${demo.css}\r\n\t\t</style>\r\n\r\n\t</head>\r\n\t<body>\r\n<script src="https://code.highcharts.com/highcharts.js"></script>\r\n<script src="https://code.highcharts.com/modules/exporting.js"></script>\r\n<ul class="hidden">\r\n  {{for d in dates:}}\r\n    <li>{{=d}}</li>\r\n  {{pass}}\r\n</ul>\r\n{{if name:}}\r\n<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>\r\n{{pass}}\r\n<script>\r\n  $(document).ready(function(){\r\n    var chart = new Highcharts.Chart({\r\n      title: {\r\n          text: \'Number of news per day\',\r\n          x: -20 //center\r\n      },\r\n      subtitle: {\r\n          text: \'Source: Radikal.com\',\r\n          x: -20\r\n      },\r\n\r\n      chart: {\r\n          renderTo: \'container\'\r\n      },\r\n\r\n      xAxis: {\r\n        categories: null,\r\n        labels:{\r\n          formatter:function(){\r\n            return "<a href=\'#"+this.value +"\' >"+this.value+\'</a>\'\r\n          },useHTML:true\r\n        }\r\n      },\r\n      yAxis: {\r\n          title: {\r\n              text: \'Number of news\'\r\n          },\r\n          plotLines: [{\r\n              value: 0,\r\n              width: 1,\r\n              color: \'#808080\'\r\n          }]\r\n      },\r\n      tooltip: {\r\n          valueSuffix: \' news released\'\r\n      },\r\n\r\n      series: [{\r\n          name: \'{{=con}}\',\r\n          data: {{=freq}}\r\n      }]\r\n\r\n    });\r\n      $(\'.hidden\').css(\'display\',\'none\')\r\n      console.log(\'test\')\r\n      var datelist = []\r\n      $(\'ul.hidden li\').each(function(){\r\n        datelist.push($(this).text())\r\n      })\r\n      console.log(datelist)\r\n\r\n      chart.xAxis[0].setCategories(datelist.sort());\r\n  });\r\n</script>\r\n\t</body>\r\n</html>\r\n'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__getslice__'
+p12
+S"<method-wrapper '__getslice__' of exceptions.IOError object>"
+p13
+sS'__str__'
+p14
+S"<method-wrapper '__str__' of exceptions.IOError object>"
+p15
+sS'__reduce__'
+p16
+S'<built-in method __reduce__ of exceptions.IOError object>'
+p17
+sS'__dict__'
+p18
+S'{}'
+p19
+sS'__sizeof__'
+p20
+S'<built-in method __sizeof__ of exceptions.IOError object>'
+p21
+sS'__init__'
+p22
+S"<method-wrapper '__init__' of exceptions.IOError object>"
+p23
+sS'__setattr__'
+p24
+S"<method-wrapper '__setattr__' of exceptions.IOError object>"
+p25
+sS'__reduce_ex__'
+p26
+S'<built-in method __reduce_ex__ of exceptions.IOError object>'
+p27
+sS'__new__'
+p28
+S'<built-in method __new__ of type object>'
+p29
+sS'errno'
+p30
+S'2'
+sS'__format__'
+p31
+S'<built-in method __format__ of exceptions.IOError object>'
+p32
+sS'__class__'
+p33
+S"<type 'exceptions.IOError'>"
+p34
+sS'filename'
+p35
+S"'/home/damla/web2py/applications/nlpproject2/views/default/layout.html'"
+p36
+sS'__doc__'
+p37
+S"'I/O operation failed.'"
+p38
+sS'__getitem__'
+p39
+S"<method-wrapper '__getitem__' of exceptions.IOError object>"
+p40
+sS'__setstate__'
+p41
+S'<built-in method __setstate__ of exceptions.IOError object>'
+p42
+sS'__getattribute__'
+p43
+S"<method-wrapper '__getattribute__' of exceptions.IOError object>"
+p44
+sS'args'
+p45
+S"(2, 'No such file or directory')"
+p46
+sS'__subclasshook__'
+p47
+S'<built-in method __subclasshook__ of type object>'
+p48
+sS'__unicode__'
+p49
+S'<built-in method __unicode__ of exceptions.IOError object>'
+p50
+sS'strerror'
+p51
+S"'No such file or directory'"
+p52
+sS'__delattr__'
+p53
+S"<method-wrapper '__delattr__' of exceptions.IOError object>"
+p54
+sS'__repr__'
+p55
+S"<method-wrapper '__repr__' of exceptions.IOError object>"
+p56
+sS'__hash__'
+p57
+S"<method-wrapper '__hash__' of exceptions.IOError object>"
+p58
+ssS'evalue'
+p59
+S"[Errno 2] No such file or directory: '/home/damla/web2py/applications/nlpproject2/views/default/layout.html'"
+p60
+sS'frames'
+p61
+(lp62
+(dp63
+S'file'
+p64
+S'/home/damla/web2py/gluon/template.py'
+p65
+sS'dump'
+p66
+(dp67
+S'builtinopen'
+p68
+S'<built-in function open>'
+p69
+sS'fileobj'
+p70
+S'undefined'
+p71
+sS'filepath'
+p72
+S"'/home/damla/web2py/applications/nlpproject2/views/default/layout.html'"
+p73
+ssS'lnum'
+p74
+I450
+sS'lines'
+p75
+(dp76
+I448
+S'        # try to read the text.'
+p77
+sI449
+S'        try:'
+p78
+sI450
+S"            fileobj = open(filepath, 'rb')"
+p79
+sI451
+S'            text = fileobj.read()'
+p80
+sI452
+S'            fileobj.close()'
+p81
+sI453
+S'        except IOError:'
+p82
+sI454
+S"            self._raise_error('Unable to open included view file: ' + filepath)"
+p83
+sI445
+S'        # Get the path of the file on the system.'
+p84
+sI446
+S'        filepath = self.path and os.path.join(self.path, filename) or filename'
+p85
+sI447
+S''
+ssS'call'
+p86
+S"(self=<gluon.template.TemplateParser object>, filename='default/layout.html')"
+p87
+sS'func'
+p88
+S'_get_file_text'
+p89
+sasS'pyver'
+p90
+S'Python 2.7.6: /usr/bin/python (prefix: /usr)'
+p91
+sS'etype'
+p92
+S"<type 'exceptions.IOError'>"
+p93
+sS'date'
+p94
+S'Thu Aug  4 15:08:57 2016'
+p95
+sS'locals'
+p96
+(dp97
+S'self'
+p98
+S'<gluon.template.TemplateParser object>'
+p99
+sS'filepath'
+p100
+S"'/home/damla/web2py/applications/nlpproject2/views/default/layout.html'"
+p101
+sS'context'
+p102
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'AppConfig': <function AppConfig>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, ...}"
+p103
+sg35
+S"'default/layout.html'"
+p104
+sssS'traceback'
+p105
+S'Traceback (most recent call last):\n  File "/home/damla/web2py/gluon/template.py", line 450, in _get_file_text\n    fileobj = open(filepath, \'rb\')\nIOError: [Errno 2] No such file or directory: \'/home/damla/web2py/applications/nlpproject2/views/default/layout.html\'\n'
+p106
+s.
